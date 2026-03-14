@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cimitero di San Benigno: Memoria e Riflessione</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Playfair Display, Open Sans, Cormorant Garamond, Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome per icone -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Palette Colori Moderni: Ruggine, Beige, Verde Scuro, Bianco Rotto, Grigio Chiaro */
+    :root {
+      --rust: #a14e2a;
+      --light-rust: #d4a574;
+      --dark-green: #2a4d3a;
+      --beige: #f9f5f0;
+      --off-white: #fffdf7;
+      --dark-text: #4b2e2a;
+      --light-gray: #e8e6e1;
+      --accent: #b8860b;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--beige);
+      color: var(--dark-text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section Senza Sfumato */
+    .hero {
+      background: url('img/Commemorazione-eccidio-di-San-Benigno_1.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 150px 0;
+      text-align: center;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .hero::before {
+      content: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--off-white);
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      margin: 0 auto;
+      font-weight: 300;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sezioni di Contenuto con Sfondi Alternati */
+    .content-section {
+      padding: 5rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-section:nth-child(odd) {
+      background-color: var(--off-white);
+    }
+
+    .content-section:nth-child(even) {
+      background-color: var(--light-gray);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--rust);
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      display: block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rust), var(--accent));
+      border-radius: 2px;
+    }
+
+    .content-section p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      margin-bottom: 1.8rem;
+      text-align: justify;
+      line-height: 1.9;
+      color: var(--dark-text);
+    }
+
+    /* Citazioni Senza Apici */
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--dark-green);
+      font-size: 1.4rem;
+      font-weight: 500;
+      border-left: 5px solid var(--accent);
+      padding-left: 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      position: relative;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Immagine Funerali */
+    .funeral-image {
+      width: 100%;
+      max-width: 1000px;
+      margin: 2rem auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      display: block;
+    }
+
+    .funeral-image:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .image-caption {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      color: var(--dark-green);
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.1rem; }
+      .section-title { font-size: 2rem; }
+      .quote { font-size: 1.2rem; padding: 1.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 100px 0; }
+      .hero-content { padding: 1.5rem; }
+      .content-section { padding: 3rem 0; }
+      .hero h1 { font-size: 2.5rem; }
+      .funeral-image { max-width: 100%; }
+    }
+
+    /* --- Nuovi stili per header e footer --- */
+    /* Header */
+    .header {
+      background-color: var(--off-white);
+      padding: 1rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      color: var(--dark-text) !important;
+      margin: 0 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: var(--rust) !important;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark-green);
+      color: var(--off-white);
+      padding: 3rem 0 1rem;
+      margin-top: 2rem;
+    }
+
+    .footer a {
+      color: var(--off-white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+    }
+
+    .footer-logo {
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+      color: var(--off-white);
+      font-size: 1.5rem;
+      margin: 0 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <!-- Loghi -->
+          <a class="navbar-brand" href="#">
+            <img src="img/logo-comune.png" alt="Comune di San Benigno" class="logo">
+            <img src="img/logo-associazione.png" alt="Associazione Martiri" class="logo">
+          </a>
+
+          <!-- Menu -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Storia</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Eventi</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contatti</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Cimitero di San Benigno</h1>
+      <p>Un luogo di memoria, riflessione e responsabilità collettiva, dove la storia dei martiri della Candelora vive nel cuore della comunità.</p>
+    </div>
+  </section>
+
+  <!-- Contenuto Principale -->
+  <div class="container">
+    <!-- Sezione 1: Storia -->
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">L’Eccidio della Candelora</h2>
+        <p>Il 2 febbraio 1945, tredici giovani di San Benigno furono fucilati in piazza sotto gli occhi dei loro concittadini. Dodici persero la vita sul colpo, mentre Bartolomeo Garro sopravvisse miracolosamente. Questo tragico evento segnò per sempre la memoria collettiva della comunità, trasformando il dolore in un impegno per la giustizia e la libertà.</p>
+        <div class="quote">
+          La libertà e la giustizia non sono conquiste automatiche, ma frutto del coraggio e della determinazione di ciascuno.
+        </div>
+      </div>
+    </section>
+
+    <!-- Sezione 2: Il Rito Funebre -->
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Il Rito Funebre del 18 Novembre 1945</h2>
+        <p>Il rito funebre del 18 novembre 1945 fu un momento di elaborazione collettiva del lutto. Famiglie, autorità e abitanti parteciparono al corteo, rendendo omaggio ai giovani caduti e cercando un senso nel dolore. Il cimitero divenne così simbolo di responsabilità collettiva e di memoria condivisa, un luogo dove la storia si fa monito per le generazioni future.</p>
+
+        <!-- Immagine dei funerali -->
+        <img src="img/funerali.jpg" alt="Funerali dei martiri di San Benigno, 18 novembre 1945" class="funeral-image">
+        <p class="image-caption">Il corteo funebre del 18 novembre 1945, un momento di condivisione del lutto e di omaggio ai martiri.</p>
+
+        <p>Le testimonianze dei sopravvissuti e dei familiari, raccolte negli archivi storici, raccontano la sofferenza di chi perse i propri cari e il coraggio di chi, pur nel terrore, aiutò i feriti. Ogni anno, la memoria dei martiri rinnova il suo richiamo alla pace e alla solidarietà.</p>
+      </div>
+    </section>
+
+    <!-- Sezione 3: Riflessione -->
+    <section class="content-section">
+      <div class="container">
+        <h2 class="section-title">Un Luogo di Riflessione</h2>
+        <p>Oggi, il Cimitero di San Benigno invita a fermarsi e a riflettere. È un luogo dove la memoria si fa impegno, dove il passato diventa lezione per il presente. Camminare tra queste tombe significa ricordare che la libertà è un diritto da difendere ogni giorno, con coraggio e determinazione.</p>
+        <div class="quote">
+          La memoria dei martiri ci ricorda che la pace è un cammino quotidiano, fatto di scelte consapevoli e di responsabilità condivisa.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- Loghi -->
+        <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+          <img src="img/logo-comune.png" alt="Comune di San Benigno" class="footer-logo">
+          <img src="img/logo-associazione.png" alt="Associazione Martiri" class="footer-logo">
+        </div>
+
+        <!-- Social -->
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+          <h5>Seguici</h5>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Contatti -->
+        <div class="col-md-4 text-center text-md-end">
+          <h5>Contatti</h5>
+          <p><i class="fas fa-map-marker-alt me-2"></i>Via Roma, 1 - San Benigno</p>
+          <p><i class="fas fa-phone me-2"></i>+39 011 1234567</p>
+          <p><i class="fas fa-envelope me-2"></i>info@sanbenigno.it</p>
+        </div>
+      </div>
+
+      <!-- Credits -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Comune di San Benigno | Associazione Martiri della Candelora | Tutti i diritti riservati</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
